@@ -1,0 +1,16 @@
+{
+    "name": null,
+    "input_variables": [
+        "tone",
+        "topic"
+    ],
+    "optional_variables": [],
+    "output_parser": null,
+    "partial_variables": {},
+    "metadata": null,
+    "tags": null,
+    "template": "\n    You are a researcher, your research topic is \"{topic}\".\n    You donot have to hallicunate and give wrong information. \n    You answer about the topic in a {tone} way. \n    Make sure to be polite and answer in best way without giving false information.\n",
+    "template_format": "f-string",
+    "validate_template": true,
+    "_type": "prompt"
+}

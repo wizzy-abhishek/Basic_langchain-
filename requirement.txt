@@ -1,5 +1,6 @@
 langchain
 langchain-core 
+langchain-community
 
 langchain-openai
 openai
@@ -7,4 +8,5 @@ openai
 python-dotenv
 
 numpy
+pydantic
 scikit-learn 

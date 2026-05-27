@@ -1,0 +1,44 @@
+The Model Context Protocol (MCP) is an open-source standard designed to revolutionize how Large Language Models (LLMs) interact with external data sources, developer tools, and enterprise applications. Initially introduced by Anthropic in late 2024, MCP has quickly matured into an industry-wide open standard. Now maintained under the Linux Foundation’s Agentic AI Foundation with backing from major AI pioneers like OpenAI and Google, MCP effectively serves as the "USB-C port for AI applications."
+
+Before MCP, integrating an LLM with external data required developers to build custom, bespoke APIs and connectors for every individual tool and model combination—a highly fragmented system known as the $N \times M$ integration problem. MCP solves this by providing a single, universal protocol that allows any supported AI client to seamlessly plug into any compatible data repository or API.
+
+---
+ Core Architectural Components
+
+MCP operates on a clean, bidirectional client-server architecture built over JSON-RPC 2.0 messages. It consists of three fundamental layers:
+
+* **The MCP Host:** This is the parent AI application or environment that the user interacts with, such as Claude Code, ChatGPT Desktop, or an AI-native integrated development environment (IDE) like Cursor.
+* **The MCP Client:** Embedded directly within the host application, the client acts as the mediator. It maintains the connection, discovers available servers, translates user prompts into protocol-compliant requests, and parses server responses back for the LLM.
+* **The MCP Server:** A lightweight, independent service that exposes specific capabilities or data to the AI. Servers can be run locally (communicating via standard input/output, or `stdio`) or remotely (using Server-Sent Events, or `SSE`). Today, thousands of open-source MCP servers exist for platforms like GitHub, PostgreSQL, Slack, Notion, and Google Calendar.
+
+---
+
+ Key Features and Technical Capabilities
+
+The protocol establishes three primary primitives that servers can expose to AI clients:
+
+1. **Resources:** These are read-only data sources that provide the LLM with background context. Examples include local files, database schemas, or live API documentation.
+2. **Tools:** These are executable actions that allow the AI to perform tasks in the physical or digital world. A tool can let an AI run a terminal command, execute a Python script, modify a file, or create a calendar event.
+3. **Prompts:** Pre-configured templates or workflows that help guide the model's reasoning process for specific, repeatable tasks.
+
+Additionally, extensions like **MCP Apps** allow servers to seamlessly stream rich, interactive user interfaces (like live data dashboards or interactive forms) directly into the chat interface of the host application.
+
+---
+
+ Why MCP is Reshaping the AI Landscape
+
+The rapid, widespread adoption of MCP stems from the immediate architectural benefits it provides across the AI ecosystem:
+
+ 1. Advancing Context Engineering
+
+Modern AI development has shifted away from simply relying on massive context windows toward precise "context engineering." MCP allows an AI agent to dynamically query, filter, and fetch only the most relevant internal libraries, Slack messages, or documentation at runtime. This keeps inference costs low and significantly reduces model hallucinations by anchoring responses in real-time, verified facts.
+
+ 2. Eliminating Vendor Lock-in
+
+Because MCP is an open standard, developers can write an integration once, and it will function perfectly whether the downstream application uses an Anthropic, OpenAI, or Google model. This decoupling allows enterprises to easily swap underlying LLM providers without rewriting their entire tool infrastructure.
+
+ 3. Powering True Agentic Autonomy
+
+MCP transitions LLMs from passive conversational partners into active, autonomous agents. By granting models safe, structured access to production data, file directories, and cloud development environments, AI can now handle end-to-end tasks like multi-file code refactoring, system monitoring, and automated data analysis.
+
+Ultimately, MCP acts as the foundational data layer for the modern AI stack, enabling a future where AI software can smoothly and safely navigate the existing digital world.
